@@ -1,0 +1,64 @@
+// Colours
+$black:  #000;
+$white:  #fff;
+$red:    #e71836;
+$blue:   #0096ce;
+$purple: #942592;
+$orange: #f77e2b;
+$green:  #18b058;
+$lightgreen: #1eb15c;
+$yellow: #fdbb31;
+
+$verylightgrey: #fafafa;
+$lightgrey:     #eee;
+$lightergrey:     #dedede;
+$altlightgrey:  #a3a3a3;
+$altmidgrey:  #4a494b;
+$grey:          #d7d7d7;
+$darkgrey:      #8f8f8f;
+$middarkgrey:   #7b7b7b;
+$middarkergrey:    #666;
+$darkergrey:    #2f2f2f;
+$verydarkgrey:  #29272a;
+
+$button-hover-black:  #404040;
+$button-hover-green:  #189c58;
+$button-hover-red: #ca1836;
+$button-hover-orange: #e66309;
+
+// Themes
+$themes: (
+  white: $white,
+  verydarkgrey: $verydarkgrey,
+  grey: $middarkgrey,
+  red: $red,
+  blue: $blue,
+  green: $green,
+  orange: $orange,
+  purple: $purple
+);
+
+// Darker colours
+$darkerThemes: (
+  white: darken($white, 10),
+  verydarkgrey: darken($verydarkgrey, 10),
+  grey: darken($grey, 10),
+  red: darken($red, 10),
+  blue: darken($blue, 10),
+  green: darken($green, 10),
+  orange: darken($orange, 10),
+  purple: darken($purple, 10),
+);
+
+// Best contrast font text color
+// for example black text is better on a white background, white text on a blue background, etc...
+$contrastFontThemes: (
+  white: $black,
+  verydarkgrey: $white,
+  grey: $white,
+  red: $white,
+  blue: $white,
+  green: $white,
+  orange: $white,
+  purple: $white
+);
