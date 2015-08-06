@@ -1,9 +1,8 @@
 // out: videoskin.css
-
+@import "variables";
 body {
   background-color: grey;
 }
-
 
 
 .YouTubeWrapper {
@@ -69,7 +68,7 @@ body {
 
     .progress-slider {
       height: 5px;
-      width: 80%;
+      width: 85%;
       cursor: pointer;
       display: inline-block;
       background-color: #dedede;
@@ -81,7 +80,7 @@ body {
     }
 
     .volume-control {
-      padding: 10px 0 10px 0;
+      padding: 0 10px 0 10px;
       font-family: 'VideoJS';
       font-size: 8px;
       display: inline-block;
@@ -114,10 +113,19 @@ body {
 
       .volume-slider {
         margin: 10px auto;
-        background-color: #f77e2b;
+        background-color: #e1e1e1;
         width: 3px;
         height: 80%;
         z-index: 1;
+      }
+
+      .volume-amount {
+        margin: 10px auto;
+        background-color: $orange;
+        position: absolute;
+        bottom: 0;
+        width: 3px;
+        height: 100%;
       }
     }
   }
