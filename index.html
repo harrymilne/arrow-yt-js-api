@@ -166,7 +166,7 @@
       }
 
       function onPlayerReady(event) {
-        resizePlayer(parent);
+        //resizePlayer(parent);
         controlDiv.find(".pos").html("00:00");
         var len_time = Math.floor(player.getDuration()).toString().toHHMMSS();
         controlDiv.find(".len").html(len_time);
@@ -181,6 +181,12 @@
       $(window).resize(function() {
         resizePlayer(parent);
       });
+
+      window.onload = function() {
+        resizePlayer(parent);
+        //for ie8?
+        //controlDiv.find(".progress-slider").css("width", (controlDiv.width() - 160) + "px" );
+      };
 
         //controls
 
@@ -201,6 +207,11 @@
             playButton.addClass("play-button--playing");
             break;
         }
+      }
+      //#control.width - (20 + 80 + 40)
+      function progressSize(){
+        console.log((controlDiv.width() - 140) + "px")
+        controlDiv.find(".progress-slider").css("width", (controlDiv.width() - 140) + "px" );
       }
 
       controlDiv.find(".volume-control").on({
