@@ -37,13 +37,14 @@
         <div class="play-button play-button--paused"></div>
 
         <div class="duration">
-          <div class="pos"></div>/
+          <div class="pos">0:00</div>/
           <div class="len"></div>
         </div>
 
         <div class="progress-slider"><div class="progress"></div></div>
 
         <div class="volume-control volume-control--vol4">
+          <div class="volume-button"></div>
           <div class="volume-tracks">
             <div class="volume-slider">
               <div class="volume-amount"></div>
@@ -137,8 +138,7 @@
         });
       }
 
-      parent = $("#"+playerId).parent().parent();
-      var controlDiv = $('#'+playerId).next();
+      var controlDiv = getControlDiv("player");
 
       function timeUpdate() {
         if(!$.inArray(player.getPlayerState(), [1,3])) {
@@ -167,7 +167,6 @@
 
       function onPlayerReady(event) {
         //resizePlayer(parent);
-        controlDiv.find(".pos").html("00:00");
         var len_time = Math.floor(player.getDuration()).toString().toHHMMSS();
         controlDiv.find(".len").html(len_time);
       }
@@ -189,6 +188,32 @@
       };
 
         //controls
+
+        function getControlDiv (playerId) {
+          parent = $("#"+playerId).parent().parent();
+          var controlDiv = $('#'+playerId).next();
+          return controlDiv;
+        }
+
+        function ControlElement (controlDiv, elementClass) {
+          this.controlDiv = controlDiv;
+          this.domElement = controlDiv.find(elementClass);
+        }
+
+        function PlayControl (controlDiv) {
+          ControlElement.call(this, controlDiv, ".play-button");
+        }
+
+        //PlayControl.prototype.
+
+        function ControlDiv (playerId) {
+          this.element = getControlDiv(playerId);
+          this.playControl = new ControlElement(this.element, ".play-button");
+          this.duration = new ControlElement(this.element, ".duration");
+          this.progressControl = new ControlElement(this.element, ".progress-slider");
+          this.volumeControl = element.find(".volume-control");
+        }
+
 
       function iconSwitch(state){
         playButton = controlDiv.find(".play-button");
@@ -277,7 +302,6 @@
         console.log("percent: " + percent + "%");
         player.setVolume(percent);
         controlDiv.find(".volume-amount").css("height", percent+"%");
-        console.log(this.value);
       });
 
     </script>
